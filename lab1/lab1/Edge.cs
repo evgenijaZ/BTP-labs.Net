@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace lab1
-{
+{ 
     class Edge
     {
         private int x1;
@@ -49,9 +49,7 @@ namespace lab1
         }
         public Edge(int x1, int x2,  int weight) {
             this.X1 = x1;
-           
             this.X2 = x2;
-           
             this.Weight = weight;
         }
 
