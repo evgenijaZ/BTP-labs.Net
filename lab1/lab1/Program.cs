@@ -13,7 +13,8 @@ namespace lab1
             Graph a = new Graph();
             a.Read();
             a.PrintList();
-            a.PrintMatrix();
+            a.PrintMatrix("\t");
+            a.PrintMST();
             Console.ReadKey();
         }
     }
