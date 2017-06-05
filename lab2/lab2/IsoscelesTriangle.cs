@@ -30,6 +30,35 @@ namespace lab2
             return "SideA = " + SideA + "\nSideB = " + SideB + "\nAngle = " + Angle;
         }
 
+        public static IsoscelesTriangle operator +(IsoscelesTriangle par1, Triangle par2)
+        {
+            return new IsoscelesTriangle(par1.SideA + par2.SideA,
+                 par1.Angle + par2.Angle);
+        }
+
+        public static IsoscelesTriangle operator -(IsoscelesTriangle par1, Triangle par2)
+        {
+            if (par1.SideA != par2.SideA && par1.Angle != par2.Angle)
+                return new IsoscelesTriangle(Math.Abs(par1.SideA - par2.SideA), 
+                    Math.Abs(par1.Angle - par2.Angle));
+            else
+                return null;
+        }
+
+        public static IsoscelesTriangle operator *(IsoscelesTriangle par1, Triangle par2)
+        {
+            return new IsoscelesTriangle(par1.SideA * par2.SideA,
+                par1.Angle * par2.Angle);
+        }
+
+        public static IsoscelesTriangle operator /(IsoscelesTriangle par1, Triangle par2)
+        {
+            return new IsoscelesTriangle(par1.SideA / par2.SideA,
+                par1.Angle / par2.Angle);
+        }
+
+
+
 
     }
 }
