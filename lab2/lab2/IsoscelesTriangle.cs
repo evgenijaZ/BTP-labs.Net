@@ -17,5 +17,19 @@ namespace lab2
         {
             return Math.Pow(this.SideA, 2) * 0.5 * Math.Sin(this.Angle);
         }
+
+        public IsoscelesTriangle(double a, double angle)
+        {
+            this.SideA = a;
+            this.SideB = a;
+            this.Angle = angle;
+        }
+
+        public override string ToString()
+        {
+            return "SideA = " + SideA + "\nSideB = " + SideB + "\nAngle = " + Angle;
+        }
+
+
     }
 }
