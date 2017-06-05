@@ -19,6 +19,14 @@ namespace lab2
             return result;
         }
 
+        public double TotalSquare() {
+            double result = 0;
+            foreach (Triangle t in figures)
+            {
+               result += t.Square();
+            }
+                return result;
+        }
        
     }
 }
