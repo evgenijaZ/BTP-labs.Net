@@ -56,31 +56,5 @@ namespace lab2
                 par1.SideB / par2.SideB, par1.Angle / par2.Angle);
         }
 
-        public override bool Equals(object obj)
-        {
-            if (obj == null)
-            {
-                return false;
-            }
-
-            Triangle t = obj as Triangle;
-            if ((System.Object)t == null)
-            {
-                return false;
-            }
-
-            return (SideA == t.SideA) && (SideB == t.SideB) && (Angle == t.Angle);
-        }
-
-        public bool Equals(Triangle t)
-        {
-            if ((object)t == null)
-            {
-                return false;
-            }
-            return (SideA == t.SideA) && (SideB == t.SideB) && (Angle == t.Angle);
-        }
-
-
     }
 }
