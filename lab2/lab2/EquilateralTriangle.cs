@@ -18,5 +18,19 @@ namespace lab2
         {
             return Math.Pow(this.SideA, 2) * Math.Pow(3, 0.5) / 4;
         }
+
+
+        public EquilateralTriangle(double a)
+        {
+            this.SideA = a;
+            this.SideB = a;
+            this.Angle = 1.04719755;
+        }
+
+        public override string ToString()
+        {
+            return "SideA = " + SideA + "\nSideB = " + SideB + "\nAngle = " + Angle;
+        }
+
     }
 }
