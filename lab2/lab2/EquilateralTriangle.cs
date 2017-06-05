@@ -32,5 +32,27 @@ namespace lab2
             return "SideA = " + SideA + "\nSideB = " + SideB + "\nAngle = " + Angle;
         }
 
+        public static EquilateralTriangle operator +(EquilateralTriangle par1, Triangle par2)
+        {
+            return new EquilateralTriangle(par1.SideA + par2.SideA);
+        }
+
+        public static EquilateralTriangle operator -(EquilateralTriangle par1, Triangle par2)
+        {
+            if (par1.SideA != par2.SideA)
+                return new EquilateralTriangle(Math.Abs(par1.SideA - par2.SideA));
+            else
+                return null;
+        }
+
+        public static EquilateralTriangle operator *(EquilateralTriangle par1, Triangle par2)
+        {
+            return new EquilateralTriangle(par1.SideA * par2.SideA);
+        }
+
+        public static EquilateralTriangle operator /(EquilateralTriangle par1, Triangle par2)
+        {
+            return new EquilateralTriangle(par1.SideA / par2.SideA);
+        }
     }
 }
