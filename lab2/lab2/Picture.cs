@@ -8,8 +8,17 @@ namespace lab2
 {
     class Picture
     {
-        public List<Triangle> figures = new List<Triangle>();
+        private List<Triangle> figures = new List<Triangle>();
 
+        public delegate void MethodContainer(String message);
+        public event MethodContainer onAdd;
+
+        public void Add(Triangle t) {
+            figures.Add(t);
+            onAdd?.Invoke("____________________________________\nAdded new element\n" + t.ToString());
+        }
+
+       
         public override string ToString()
         {
             String result = "";
