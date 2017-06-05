@@ -30,5 +30,57 @@ namespace lab2
             return "SideA = "+SideA+ "\nSideB = " + SideB + "\nAngle = " + Angle;
         }
 
+        public static RightTriangle operator +(RightTriangle par1, Triangle par2)
+        {
+            return new RightTriangle(par1.SideA + par2.SideA,
+                par1.SideB + par2.SideB, par1.Angle + par2.Angle);
+        }
+
+        public static RightTriangle operator -(RightTriangle par1, Triangle par2)
+        {
+            if (par1.SideA != par2.SideA && par1.SideB != par2.SideB && par1.Angle != par2.Angle)
+                return new RightTriangle(Math.Abs(par1.SideA - par2.SideA), Math.Abs(par1.SideB - par2.SideB), Math.Abs(par1.Angle - par2.Angle));
+            else
+                return null;
+        }
+
+        public static RightTriangle operator *(RightTriangle par1, Triangle par2)
+        {
+            return new RightTriangle(par1.SideA * par2.SideA,
+                par1.SideB * par2.SideB, par1.Angle * par2.Angle);
+        }
+
+        public static RightTriangle operator /(RightTriangle par1, Triangle par2)
+        {
+            return new RightTriangle(par1.SideA / par2.SideA,
+                par1.SideB / par2.SideB, par1.Angle / par2.Angle);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            Triangle t = obj as Triangle;
+            if ((System.Object)t == null)
+            {
+                return false;
+            }
+
+            return (SideA == t.SideA) && (SideB == t.SideB) && (Angle == t.Angle);
+        }
+
+        public bool Equals(Triangle t)
+        {
+            if ((object)t == null)
+            {
+                return false;
+            }
+            return (SideA == t.SideA) && (SideB == t.SideB) && (Angle == t.Angle);
+        }
+
+
     }
 }
