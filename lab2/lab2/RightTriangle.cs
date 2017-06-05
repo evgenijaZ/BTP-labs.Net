@@ -17,5 +17,18 @@ namespace lab2
         {
             return this.SideA * this.SideB * 0.5;
         }
+
+        public RightTriangle(double a, double b, double angle) {
+            if (angle > 1.57079633) return;
+            this.SideA = a;
+            this.SideB = b;
+            this.Angle = angle;
+        }
+
+        public override string ToString()
+        {
+            return "SideA = "+SideA+ "\nSideB = " + SideB + "\nAngle = " + Angle;
+        }
+
     }
 }
