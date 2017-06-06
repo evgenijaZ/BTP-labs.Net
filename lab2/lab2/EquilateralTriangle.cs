@@ -4,7 +4,7 @@ namespace lab2
 {
     class EquilateralTriangle : Triangle
     {
-     
+
         public override double Perimeter()
         {
             return this.SideA * 3;
@@ -18,16 +18,18 @@ namespace lab2
 
         public EquilateralTriangle(double a)
         {
-            if (a <= 0) throw new NegativeValueException("The side A should be positive");
+
+            try
+            {
+                if (a <= 0) throw (new NegativeValueException());
+            }
+            catch {
+                NegativeValueException ex = new NegativeValueException("The side A should be positive");
+            }
             this.SideA = a;
             this.SideB = a;
             this.Angle = 1.04719755;
-        }
-
-        public override string ToString()
-        {
-            return "SideA = " + SideA + "\nSideB = " + SideB + "\nAngle = " + Angle;
-        }
+            }
 
         public static EquilateralTriangle operator +(EquilateralTriangle par1, Triangle par2)
         {

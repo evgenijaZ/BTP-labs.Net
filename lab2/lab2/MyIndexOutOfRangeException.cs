@@ -15,6 +15,7 @@ namespace lab2
 
         public MyIndexOutOfRangeException(string message) : base(message)
         {
+            Console.Write(message);
         }
 
         public MyIndexOutOfRangeException(string message, Exception innerException) : base(message, innerException)

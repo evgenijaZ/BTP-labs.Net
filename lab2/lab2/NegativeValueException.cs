@@ -11,6 +11,7 @@ namespace lab2
 
         public NegativeValueException(string message) : base(message)
         {
+            Console.Write(message);
         }
 
         public NegativeValueException(string message, Exception innerException) : base(message, innerException)
