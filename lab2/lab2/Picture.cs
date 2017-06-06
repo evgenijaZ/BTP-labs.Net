@@ -36,6 +36,48 @@ namespace lab2
             return result;
         }
 
+        public void SetSideA(int index, double value) {
+            if (index >= figures.Count)
+                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            figures[index].SideA = value;
+        }
+
+        public void SetSideB(int index, double value)
+        {
+            if (index >= figures.Count)
+                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            figures[index].SideB = value;
+        }
+
+        public void Angle(int index, double value)
+        {
+            if (index >= figures.Count)
+                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            figures[index].Angle = value;
+        }
+
+        public double GetSideA(int index)
+        {
+            if (index >= figures.Count)
+                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            return figures[index].SideA;
+        }
+
+
+        public double GetSideB(int index)
+        {
+            if (index >= figures.Count)
+                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            return figures[index].SideB;
+        }
+
+        public double GetAngle(int index)
+        {
+            if (index >= figures.Count)
+                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            return figures[index].Angle;
+        }
+
         public void RemoveAt(int index)
         {
             if (index >= figures.Count)
