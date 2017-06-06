@@ -11,10 +11,13 @@ namespace lab2
     {
         public MyStackOverflowException()
         {
+
         }
 
         public MyStackOverflowException(string message) : base(message)
         {
+            Console.Write(message);
+
         }
 
         public MyStackOverflowException(string message, Exception innerException) : base(message, innerException)

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab2
 {
@@ -15,6 +11,7 @@ namespace lab2
 
         public NegativeValueException(string message) : base(message)
         {
+            Console.Write(message);
         }
 
         public NegativeValueException(string message, Exception innerException) : base(message, innerException)

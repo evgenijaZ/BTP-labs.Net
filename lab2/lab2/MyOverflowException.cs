@@ -15,6 +15,7 @@ namespace lab2
 
         public MyOverflowException(string message) : base(message)
         {
+            Console.Write(message);
         }
 
         public MyOverflowException(string message, Exception innerException) : base(message, innerException)

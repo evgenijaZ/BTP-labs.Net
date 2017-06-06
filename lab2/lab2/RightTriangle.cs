@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab2
 {
@@ -10,10 +6,31 @@ namespace lab2
     {
         public RightTriangle(double a, double b, double angle)
         {
-            if (angle >= 1.57079633) throw new NegativeValueException("The angle should be less than 1.57079633 radians");
-            if (angle <= 0 || angle > 3.1415926535898) throw new NegativeValueException("The angle should be 0 and pi radian");
-            if (a < 0) throw new NegativeValueException("The side A should be positive"); 
-            if (b < 0) throw new NegativeValueException("The side B should be positive");
+            try
+            {
+                if (angle >= 1.57079633) throw (new NegativeValueException());
+            }
+            catch
+            {
+                NegativeValueException ex = new NegativeValueException("The angle should be less than 1.57079633 radians");
+            }
+
+            try
+            {
+                if (angle <= 0 || angle > 3.1415926535898) throw (new NegativeValueException());
+            }
+            catch
+            {
+                NegativeValueException ex = new NegativeValueException("The angle should be between 0 and pi radians");
+            }
+            try
+            {
+                if (a<=0||b<=0) throw (new NegativeValueException());
+            }
+            catch
+            {
+                NegativeValueException ex = new NegativeValueException("The side should be positive");
+            }
             this.SideA = a;
             this.SideB = b;
             this.Angle = angle;
@@ -21,7 +38,7 @@ namespace lab2
 
         public override double Perimeter()
         {
-            return this.SideA + this.SideB + this.SideB *Math.Sin(this.Angle);
+            return this.SideA + this.SideB + this.SideB * Math.Sin(this.Angle);
         }
 
         public override double Square()
@@ -29,11 +46,8 @@ namespace lab2
             return this.SideA * this.SideB * 0.5;
         }
 
-  
-        public override string ToString()
-        {
-            return "SideA = "+SideA+ "\nSideB = " + SideB + "\nAngle = " + Angle;
-        }
+
+
 
         public static RightTriangle operator +(RightTriangle par1, Triangle par2)
         {

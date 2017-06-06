@@ -11,10 +11,13 @@ namespace lab2
     {
         public MyArrayTypeMismatchException()
         {
+
         }
 
         public MyArrayTypeMismatchException(string message) : base(message)
         {
+            Console.Write(message);
+
         }
 
         public MyArrayTypeMismatchException(string message, Exception innerException) : base(message, innerException)

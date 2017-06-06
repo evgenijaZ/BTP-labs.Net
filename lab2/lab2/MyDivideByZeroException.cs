@@ -14,7 +14,9 @@ namespace lab2
         }
 
         public MyDivideByZeroException(string message) : base(message)
-        {           
+        {
+            Console.Write(message);
+
         }
 
         public MyDivideByZeroException(string message, Exception innerException) : base(message, innerException)

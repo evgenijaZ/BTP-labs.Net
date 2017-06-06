@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab2
 {
@@ -27,11 +23,6 @@ namespace lab2
             this.Angle = angle;
         }
 
-        public override string ToString()
-        {
-            return "SideA = " + SideA + "\nSideB = " + SideB + "\nAngle = " + Angle;
-        }
-
         public static IsoscelesTriangle operator +(IsoscelesTriangle par1, Triangle par2)
         {
             return new IsoscelesTriangle(par1.SideA + par2.SideA,
@@ -41,7 +32,7 @@ namespace lab2
         public static IsoscelesTriangle operator -(IsoscelesTriangle par1, Triangle par2)
         {
             if (par1.SideA != par2.SideA && par1.Angle != par2.Angle)
-                return new IsoscelesTriangle(Math.Abs(par1.SideA - par2.SideA), 
+                return new IsoscelesTriangle(Math.Abs(par1.SideA - par2.SideA),
                     Math.Abs(par1.Angle - par2.Angle));
             else
                 return null;
@@ -60,9 +51,5 @@ namespace lab2
             return new IsoscelesTriangle(par1.SideA / par2.SideA,
                 par1.Angle / par2.Angle);
         }
-
-
-
-
     }
 }

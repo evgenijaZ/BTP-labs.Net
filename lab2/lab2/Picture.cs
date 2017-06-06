@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab2
 {
@@ -14,96 +11,148 @@ namespace lab2
         public event MethodContainer onAdd;
         public event MethodContainer onRemove;
 
-        public void Add(Object obj) {
-            if (obj == null)
+        public void Add(Object obj)
+        {
+            try
             {
-                 throw new ArgumentNullException("Argument can`t be null");
+                if (obj == null) throw (new ArgumentNullException());
             }
-
+            catch
+            {
+                ArgumentNullException ex = new ArgumentNullException("Argument can`t be null");
+            }
             Triangle t = obj as Triangle;
-            if ((System.Object)t == null)
+            try
             {
-                throw new ArgumentNullException("Argument can`t be null");
+                if ((System.Object)t == null) throw (new ArgumentNullException());
             }
-
+            catch
+            {
+                ArgumentNullException ex = new ArgumentNullException("Argument can`t be null");
+            }
             figures.Add(t);
-            onAdd?.Invoke("\nAdded new element\n" + t.ToString()+"\n");
+            onAdd?.Invoke("\nAdded new element\n" + t.ToString() + "\n");
         }
 
-        public bool Remove(Triangle t) {
+        public bool Remove(Triangle t)
+        {
             bool result = figures.Remove(t);
             if (result) onRemove?.Invoke("\nRemoved element\n" + t.ToString());
             return result;
         }
 
-        public void SetSideA(int index, double value) {
-            if (index >= figures.Count)
-                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+        public void SetSideA(int index, double value)
+        {
+            try
+            {
+                if (index >= figures.Count) throw (new MyIndexOutOfRangeException());
+            }
+            catch
+            {
+                MyIndexOutOfRangeException ex = new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            }
             figures[index].SideA = value;
         }
 
         public void SetSideB(int index, double value)
         {
-            if (index >= figures.Count)
-                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            try
+            {
+                if (index >= figures.Count) throw (new MyIndexOutOfRangeException());
+            }
+            catch
+            {
+                MyIndexOutOfRangeException ex = new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            }
             figures[index].SideB = value;
         }
 
         public void Angle(int index, double value)
         {
-            if (index >= figures.Count)
-                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            try
+            {
+                if (index >= figures.Count) throw (new MyIndexOutOfRangeException());
+            }
+            catch
+            {
+                MyIndexOutOfRangeException ex = new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            }
             figures[index].Angle = value;
         }
 
         public double GetSideA(int index)
         {
-            if (index >= figures.Count)
-                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            try
+            {
+                if (index >= figures.Count) throw (new MyIndexOutOfRangeException());
+            }
+            catch
+            {
+                MyIndexOutOfRangeException ex = new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            }
             return figures[index].SideA;
         }
 
 
         public double GetSideB(int index)
         {
-            if (index >= figures.Count)
-                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            try
+            {
+                if (index >= figures.Count) throw (new MyIndexOutOfRangeException());
+            }
+            catch
+            {
+                MyIndexOutOfRangeException ex = new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            }
             return figures[index].SideB;
         }
 
         public double GetAngle(int index)
         {
-            if (index >= figures.Count)
-                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            try
+            {
+                if (index >= figures.Count) throw (new MyIndexOutOfRangeException());
+            }
+            catch
+            {
+                MyIndexOutOfRangeException ex = new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + figures.Count + " )");
+            }
             return figures[index].Angle;
         }
 
         public void RemoveAt(int index)
         {
-            if (index >= figures.Count)
-                throw new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size="+figures.Count+" )");
-            figures.RemoveAt(index);
-            onRemove?.Invoke("\nRemoved element at "+index);
-            
+            try
+            {
+                if (index >= figures.Count) throw (new MyIndexOutOfRangeException());
+            }
+            catch
+            {
+                MyIndexOutOfRangeException ex = new MyIndexOutOfRangeException("Index (" + index + ") can`t be out of range ( size=" + this.figures.Count + " )");
+            }
+            onRemove?.Invoke("\nRemoved element at " + index);
+
         }
 
         public override string ToString()
         {
             String result = "";
-            foreach(Triangle t in figures){
-                result += t.GetType() + " {\n" + t.ToString() + " }\n";
+            foreach (Triangle t in figures)
+            {
+                result += t.ToString() + " }\n";
             }
             return result;
         }
 
-        public double TotalSquare() {
+        public double TotalSquare()
+        {
             double result = 0;
             foreach (Triangle t in figures)
             {
-               result += t.Square();
+                result += t.Square();
             }
-                return result;
+            return result;
         }
-       
+
     }
 }
