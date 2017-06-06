@@ -22,7 +22,7 @@ namespace lab2
 
         public EquilateralTriangle(double a)
         {
-            if (a < 0) throw new NegativeValueException("The side A should be positive");
+            if (a <= 0) throw new NegativeValueException("The side A should be positive");
             this.SideA = a;
             this.SideB = a;
             this.Angle = 1.04719755;

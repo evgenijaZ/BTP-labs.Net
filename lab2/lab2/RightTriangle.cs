@@ -10,8 +10,8 @@ namespace lab2
     {
         public RightTriangle(double a, double b, double angle)
         {
-            if (angle > 1.57079633) throw new NegativeValueException("The angle should be less than 1.57079633 radians");
-            if (angle < 0 || angle > 3.1415926535898) throw new NegativeValueException("The angle should be 0 and pi radian");
+            if (angle >= 1.57079633) throw new NegativeValueException("The angle should be less than 1.57079633 radians");
+            if (angle <= 0 || angle > 3.1415926535898) throw new NegativeValueException("The angle should be 0 and pi radian");
             if (a < 0) throw new NegativeValueException("The side A should be positive"); 
             if (b < 0) throw new NegativeValueException("The side B should be positive");
             this.SideA = a;
