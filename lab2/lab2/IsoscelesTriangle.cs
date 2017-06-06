@@ -20,6 +20,8 @@ namespace lab2
 
         public IsoscelesTriangle(double a, double angle)
         {
+            if (a < 0) throw new NegativeValueException("The side A should be positive");
+            if (angle < 0 || angle > 3.1415926535898) throw new NegativeValueException("The angle should be 0 and pi radian");
             this.SideA = a;
             this.SideB = a;
             this.Angle = angle;
