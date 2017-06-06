@@ -53,6 +53,8 @@ namespace lab2
 
         public static IsoscelesTriangle operator /(IsoscelesTriangle par1, Triangle par2)
         {
+            if (par2.SideA == 0 || par2.Angle == 0)
+                throw new MyDivideByZeroException("You try to devide by zero");
             return new IsoscelesTriangle(par1.SideA / par2.SideA,
                 par1.Angle / par2.Angle);
         }

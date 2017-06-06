@@ -52,6 +52,8 @@ namespace lab2
 
         public static RightTriangle operator /(RightTriangle par1, Triangle par2)
         {
+            if (par2.SideA == 0 || par2.SideB == 0 || par2.Angle == 0)
+                throw new MyDivideByZeroException("You try to devide by zero");
             return new RightTriangle(par1.SideA / par2.SideA,
                 par1.SideB / par2.SideB, par1.Angle / par2.Angle);
         }

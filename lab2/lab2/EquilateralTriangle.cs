@@ -52,6 +52,8 @@ namespace lab2
 
         public static EquilateralTriangle operator /(EquilateralTriangle par1, Triangle par2)
         {
+            if (par2.SideA == 0)
+                throw new MyDivideByZeroException("You try to devide by zero");
             return new EquilateralTriangle(par1.SideA / par2.SideA);
         }
     }
