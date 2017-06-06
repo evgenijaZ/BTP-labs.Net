@@ -27,6 +27,10 @@ namespace lab2
         abstract public double Square();
         abstract public double Perimeter();
 
+        public override string ToString()
+        {
+            return this.GetType() + " {\nSideA = " + this.SideA + "\nSideB = " + this.SideB + "\nAngle = " + this.Angle + " }\n";
+        }
 
         public override bool Equals(object obj)
         {
